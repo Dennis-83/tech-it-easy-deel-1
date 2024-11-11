@@ -1,11 +1,11 @@
 import {inventory} from "../constants/inventory.js";
 
-function productsBought() {
+function productsBought(productsArray) {
     let totalBought = 0;
-    for (let i = 0; i < inventory.length; i++) {
-        totalBought += inventory[i].originalStock;
+    for (let i = 0; i < productsArray.length; i++) {
+        totalBought += productsArray[i].originalStock;
     }
-    console.log(totalBought);
+    // console.log(totalBought);
     return totalBought;
 }
 

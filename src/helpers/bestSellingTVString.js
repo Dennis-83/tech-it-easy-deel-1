@@ -1,21 +1,17 @@
-import {bestSellingTv} from "../constants/inventory.js";
 
-function bestSellingTVString() {
-    const tv = bestSellingTv;
-    const tvSizes = bestSellingTVsizes();
-    const tvPrice = addEuroSign(tv.price);
-    console.log(bestSellingTv);
-    const objectToString = `${tv.brand} ${tv.type} - ${tv.name} ${tvPrice} ${tvSizes}`;
-    console.log(objectToString);
+function bestSellingTVString(tv) {
+    // console.log(bestSellingTv);
+    const objectToString = `${tv.brand} ${tv.type} - ${tv.name}`;
+    // console.log(objectToString);
     return objectToString;
 }
 
-function bestSellingTVsizes() {
+export function bestSellingTVsizes(tv) {
     let sizes = "";
-    for (let i = 0; i < bestSellingTv.availableSizes.length; i++) {
-        const sizeInches = bestSellingTv.availableSizes[i];
+    for (let i = 0; i < tv.availableSizes.length; i++) {
+        const sizeInches = tv.availableSizes[i];
         const sizeCentimeters = convertInchToCentimeter(sizeInches);
-        if (i === bestSellingTv.availableSizes.length -1) {
+        if (i === tv.availableSizes.length -1) {
         sizes += `${sizeInches} inch (${sizeCentimeters} cm)`;
         } else  {
         sizes += `${sizeInches} inch (${sizeCentimeters} cm) | `;
@@ -28,7 +24,7 @@ function convertInchToCentimeter(inches) {
     return Math.round(inches * 2.54);
 }
 
-function addEuroSign(price) {
+export function showTVEuroPrice(price) {
     return `€${price},-`
 }
 

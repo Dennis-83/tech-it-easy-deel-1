@@ -1,10 +1,10 @@
 import productsBought from "./productsBought.js";
 import productsSold from "./productsSold.js";
 
-function productsToBeSold() {
-    const stock = productsBought();
-    const sold = productsSold();
-    console.log(stock - sold);
+function productsToBeSold(productsArray) {
+    const stock = productsBought(productsArray);
+    const sold = productsSold(productsArray);
+    // console.log(stock - sold);
     return stock - sold;
 }
 
