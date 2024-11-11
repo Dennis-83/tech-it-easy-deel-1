@@ -7,13 +7,15 @@ import {bestSellingTv, inventory} from "./constants/inventory.js";
 
 
 function App() {
-    const bestTVName = bestSellingTVString(bestSellingTv);
-    const TVSizes = bestSellingTVsizes(bestSellingTv);
-    const TVprice = showTVEuroPrice(bestSellingTv.price);
+    const bestTVName = bestSellingTVString(inventory[3]);
+    const TVSizes = bestSellingTVsizes(inventory[3]);
+    const TVprice = showTVEuroPrice(inventory[3].price);
     const soldTVs = productsSold(inventory);
     const boughtTVs = productsBought(inventory);
     const toBeSold = productsToBeSold(inventory);
-    const productImage = bestSellingTv.sourceImg;
+    const productImage = inventory[5].sourceImg;
+    const checkIcon = <span><img className="icon" src="../src/assets/check.png" alt="checkmark"/></span>;
+    const minusIcon = <span><img className="icon" src="../src/assets/minus.png" alt="checkmark"/></span>;
     return (
         <>
             <h1>Er zijn <span className="green">{soldTVs}</span> televisies verkocht.</h1>
@@ -31,6 +33,7 @@ function App() {
                     <h1>{bestTVName}</h1>
                     <h1>{TVprice}</h1>
                     <h1>{TVSizes}</h1>
+                    <h1>{checkIcon}wifi {minusIcon}speech {checkIcon}hdr {checkIcon}bluetooth {minusIcon}ambilight</h1>
                 </div>
             </article>
 

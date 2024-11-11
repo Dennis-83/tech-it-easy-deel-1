@@ -42,6 +42,15 @@ button {
     padding: 10px;
     font-size: 1.5rem;
 }
+
 button + button {
     margin-left: 10px;
+}
+
+.icon {
+    height: 14px;
+}
+
+.tv-image-wrapper img {
+    width: 100%;
 }
