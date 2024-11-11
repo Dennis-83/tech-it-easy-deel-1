@@ -13,6 +13,7 @@ function App() {
     const soldTVs = productsSold(inventory);
     const boughtTVs = productsBought(inventory);
     const toBeSold = productsToBeSold(inventory);
+    const productImage = bestSellingTv.sourceImg;
     return (
         <>
             <h1>Er zijn <span className="green">{soldTVs}</span> televisies verkocht.</h1>
@@ -24,12 +25,24 @@ function App() {
 
             <article>
                 <div className="tv-image-wrapper">
-
+                    <img src={productImage} alt="image of a tv"/>
                 </div>
                 <div className="tv-properties">
-
+                    <h1>{bestTVName}</h1>
+                    <h1>{TVprice}</h1>
+                    <h1>{TVSizes}</h1>
                 </div>
             </article>
+
+            <button onClick={() => console.log("Meest verkocht eerst")} type="button" className="button-popular">
+                Meest verkocht eerst
+            </button>
+            <button onClick={() => console.log("Goedkoopste eerst")} type="button" className="button-cheapest">
+                Goedkoopste eerst
+            </button>
+            <button onClick={() => console.log("Meest geschikt voor sport eerst")} type="button" className="button-sports">
+                Meest geschikt voor sport eerst
+            </button>
         </>
     )
 }
