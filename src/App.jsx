@@ -42,9 +42,43 @@ function App() {
             <button onClick={() => console.log("Goedkoopste eerst")} type="button" className="button-cheapest">
                 Goedkoopste eerst
             </button>
-            <button onClick={() => console.log("Meest geschikt voor sport eerst")} type="button" className="button-sports">
+            <button onClick={() => console.log("Meest geschikt voor sport eerst")} type="button"
+                    className="button-sports">
                 Meest geschikt voor sport eerst
             </button>
+
+            <ul>
+                {inventory.map((tv) => {
+                    // console.log(tv.brand);
+                    return <li>
+                        {tv.brand}
+                    </li>
+                })}
+            </ul>
+
+            <div>
+                {inventory.map((tv) => {
+                    return <article>
+                        <div className="tv-image-wrapper">
+                            <img src={tv.sourceImg} alt="image of a tv"/>
+                        </div>
+                        <div className="tv-properties">
+                            <h1>{bestSellingTVString(tv)}</h1>
+                            <h1>{showTVEuroPrice(tv.price)}</h1>
+                            <h1>{bestSellingTVsizes(tv)}</h1>
+                            <h1>
+                                {tv.options.map((option) => {
+                                    if (option.applicable) {
+                                        return <span> {checkIcon}{option.name}</span>
+                                    } else {
+                                        return <span> {minusIcon}{option.name}</span>
+                                    }
+                                })}
+                            </h1>
+                        </div>
+                    </article>
+                })}
+            </div>
         </>
     )
 }

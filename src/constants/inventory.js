@@ -327,7 +327,7 @@ export let inventory = [
         sold: 8,
     },
 ];
-
+/*
 console.log('=== Opdracht Deel 2 ===');
 const tvTypeNames = inventory.map((tvTypeName) => tvTypeName.type);
 console.log(tvTypeNames);
@@ -366,4 +366,5 @@ const ambiLightTVs = inventory.filter((tv) => {
     return tv.options.find((option) => (option.name === 'ambiLight' && option.applicable))
 })
 console.log(ambiLightTVs);
+*/
 
