@@ -9,7 +9,7 @@ import {bestSellingTv, inventory} from "./constants/inventory.js";
 function App() {
     const bestTVName = bestSellingTVString(inventory[3]);
     const TVSizes = bestSellingTVsizes(inventory[3]);
-    const TVprice = showTVEuroPrice(inventory[3].price);
+    const TVPrice = showTVEuroPrice(inventory[3].price);
     const soldTVs = productsSold(inventory);
     const boughtTVs = productsBought(inventory);
     const toBeSold = productsToBeSold(inventory);
@@ -21,17 +21,16 @@ function App() {
             <h1>Er zijn <span className="green">{soldTVs}</span> televisies verkocht.</h1>
             <h1>Er zijn <span className="blue">{boughtTVs}</span> televisies ingekocht.</h1>
             <h1>Er moeten nog <span className="red">{toBeSold}</span> televisies verkocht worden.</h1>
-            <h1>{bestTVName}</h1>
-            <h1>{TVprice}</h1>
-            <h1>{TVSizes}</h1>
-
+            {/*<h1>{bestTVName}</h1>*/}
+            {/*<h1>{TVPrice}</h1>*/}
+            {/*<h1>{TVSizes}</h1>*/}
             <article>
                 <div className="tv-image-wrapper">
                     <img src={productImage} alt="image of a tv"/>
                 </div>
                 <div className="tv-properties">
                     <h1>{bestTVName}</h1>
-                    <h1>{TVprice}</h1>
+                    <h1>{TVPrice}</h1>
                     <h1>{TVSizes}</h1>
                     <h1>{checkIcon}wifi {minusIcon}speech {checkIcon}hdr {checkIcon}bluetooth {minusIcon}ambilight</h1>
                 </div>
