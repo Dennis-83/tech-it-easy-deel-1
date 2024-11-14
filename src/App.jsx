@@ -36,13 +36,22 @@ function App() {
                 </div>
             </article>
 
-            <button onClick={() => console.log("Meest verkocht eerst")} type="button" className="button-popular">
+            <button onClick={() => {
+                console.log(inventory.sort((productA, productB) => productB.sold - productA.sold));
+                console.log("Meest verkocht eerst");
+            }} type="button" className="button-popular">
                 Meest verkocht eerst
             </button>
-            <button onClick={() => console.log("Goedkoopste eerst")} type="button" className="button-cheapest">
+            <button onClick={() => {
+                console.log(inventory.sort((productA, productB) => productA.price - productB.price));
+                console.log("Goedkoopste eerst");
+            }} type="button" className="button-cheapest">
                 Goedkoopste eerst
             </button>
-            <button onClick={() => console.log("Meest geschikt voor sport eerst")} type="button"
+            <button onClick={() => {
+                console.log(inventory.sort((productA, productB) => productB.refreshRate - productA.refreshRate))
+                console.log("Meest geschikt voor sport eerst")
+            }} type="button"
                     className="button-sports">
                 Meest geschikt voor sport eerst
             </button>
