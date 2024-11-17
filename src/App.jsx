@@ -79,7 +79,7 @@ function App() {
                         <div className="tv-image-wrapper">
                             <img src={tv.sourceImg} alt="image of a tv"/>
                             {(tv.sold - tv.originalStock === 0) &&
-                                <div className="sold-out"><img src="../src/assets/out-of-stock.png"/></div>}
+                                <div className="sold-out"><img src="../src/assets/out-of-stock.png" alt="Sold-out sign"/></div>}
                         </div>
                         <div className="tv-properties">
                             <h1>{televisionTitle(tv)}</h1>
