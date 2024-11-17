@@ -3,7 +3,8 @@ import productsSold from "./helpers/productsSold.js";
 import productsBought from "./helpers/productsBought.js";
 import productsToBeSold from "./helpers/productsToBeSold.js";
 import bestSellingTVString, {bestSellingTVsizes, showTVEuroPrice} from "./helpers/bestSellingTVString.js";
-import {bestSellingTv, inventory} from "./constants/inventory.js";
+import {inventory} from "./constants/inventory.js";
+import biggestScreenSize from "./helpers/biggestScreenSize.js";
 
 
 function App() {
@@ -21,9 +22,6 @@ function App() {
             <h1>Er zijn <span className="green">{soldTVs}</span> televisies verkocht.</h1>
             <h1>Er zijn <span className="blue">{boughtTVs}</span> televisies ingekocht.</h1>
             <h1>Er moeten nog <span className="red">{toBeSold}</span> televisies verkocht worden.</h1>
-            {/*<h1>{bestTVName}</h1>*/}
-            {/*<h1>{TVPrice}</h1>*/}
-            {/*<h1>{TVSizes}</h1>*/}
             <article>
                 <div className="tv-image-wrapper">
                     <img src={productImage} alt="image of a tv"/>
@@ -49,16 +47,20 @@ function App() {
                 Goedkoopste eerst
             </button>
             <button onClick={() => {
-                console.log(inventory.sort((productA, productB) => productB.refreshRate - productA.refreshRate))
-                console.log("Meest geschikt voor sport eerst")
-            }} type="button"
-                    className="button-sports">
+                console.log(inventory.sort((productA, productB) => productB.refreshRate - productA.refreshRate));
+                console.log("Meest geschikt voor sport eerst");
+            }} type="button" className="button-sports">
                 Meest geschikt voor sport eerst
+            </button>
+            <button onClick={() => {
+                console.log(inventory.sort((productA, productB) => biggestScreenSize(productB) - biggestScreenSize(productA)));
+                console.log("Grootste schermgroottes eerst");
+            }} type="button" className="button-biggest-screen">
+                Grootste schermgroottes eerst
             </button>
 
             <ul>
                 {inventory.map((tv) => {
-                    // console.log(tv.brand);
                     return <li>
                         {tv.brand}
                     </li>
