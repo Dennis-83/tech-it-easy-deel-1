@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.green {
+    color: limegreen;
+}
+
+.blue {
+    color: dodgerblue;
+}
+
+.red {
+    color: red;
+}
+
+article {
+    background-color: lightgrey;
+    display: flex;
+    margin: 30px;
+
+}
+
+.tv-image-wrapper {
+    padding: 20px;
+    flex-basis: 500px;
+    /*border: 2px solid blue;*/
+}
+
+.tv-properties {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-basis: 100%;
+    /*border: 2px dashed darkred;*/
+}
+
+button {
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+button + button {
+    margin-left: 10px;
+}
+
+.icon {
+    height: 14px;
+}
+
+.tv-image-wrapper {
+    display: flex;
+    position: relative;
+}
+
+.tv-image-wrapper img {
+    width: 100%;
+}
+
+.sold-out {
+    position: absolute;
+    width: 200px;
+    top: -24px;
+    right: 75px;
+}
