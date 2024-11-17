@@ -1,12 +1,9 @@
 
-function bestSellingTVString(tv) {
-    // console.log(bestSellingTv);
-    const objectToString = `${tv.brand} ${tv.type} - ${tv.name}`;
-    // console.log(objectToString);
-    return objectToString;
+function televisionTitle(tv) {
+    return `${tv.brand} ${tv.type} - ${tv.name}`;
 }
 
-export function bestSellingTVsizes(tv) {
+export function tvSizes(tv) {
     let sizes = "";
     for (let i = 0; i < tv.availableSizes.length; i++) {
         const sizeInches = tv.availableSizes[i];
@@ -28,4 +25,4 @@ export function showTVEuroPrice(price) {
     return `€${price},-`
 }
 
-export default bestSellingTVString;
+export default televisionTitle;

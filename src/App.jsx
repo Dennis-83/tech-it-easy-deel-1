@@ -2,37 +2,43 @@ import './App.css';
 import productsSold from "./helpers/productsSold.js";
 import productsBought from "./helpers/productsBought.js";
 import productsToBeSold from "./helpers/productsToBeSold.js";
-import bestSellingTVString, {bestSellingTVsizes, showTVEuroPrice} from "./helpers/bestSellingTVString.js";
+import televisionTitle, {tvSizes, showTVEuroPrice} from "./helpers/televisionHelpers.js";
 import {inventory} from "./constants/inventory.js";
 import biggestScreenSize from "./helpers/biggestScreenSize.js";
 
 
 function App() {
-    const bestTVName = bestSellingTVString(inventory[3]);
-    const TVSizes = bestSellingTVsizes(inventory[3]);
-    const TVPrice = showTVEuroPrice(inventory[3].price);
-    const soldTVs = productsSold(inventory);
-    const boughtTVs = productsBought(inventory);
-    const toBeSold = productsToBeSold(inventory);
-    const productImage = inventory[5].sourceImg;
+
+    // // Variabelen voor Deel 1 van de opdracht
+    // const bestTVName = televisionTitle(inventory[3]);
+    // const TVSizes = tvSizes(inventory[3]);
+    // const TVPrice = showTVEuroPrice(inventory[3].price);
+    // const soldTVs = productsSold(inventory);
+    // const boughtTVs = productsBought(inventory);
+    // const toBeSold = productsToBeSold(inventory);
+    // const productImage = inventory[5].sourceImg;
     const checkIcon = <span><img className="icon" src="../src/assets/check.png" alt="checkmark"/></span>;
     const minusIcon = <span><img className="icon" src="../src/assets/minus.png" alt="checkmark"/></span>;
     return (
         <>
-            <h1>Er zijn <span className="green">{soldTVs}</span> televisies verkocht.</h1>
-            <h1>Er zijn <span className="blue">{boughtTVs}</span> televisies ingekocht.</h1>
-            <h1>Er moeten nog <span className="red">{toBeSold}</span> televisies verkocht worden.</h1>
-            <article>
-                <div className="tv-image-wrapper">
-                    <img src={productImage} alt="image of a tv"/>
-                </div>
-                <div className="tv-properties">
-                    <h1>{bestTVName}</h1>
-                    <h1>{TVPrice}</h1>
-                    <h1>{TVSizes}</h1>
-                    <h1>{checkIcon}wifi {minusIcon}speech {checkIcon}hdr {checkIcon}bluetooth {minusIcon}ambilight</h1>
-                </div>
-            </article>
+            {/*/!*Deel 1 van de opdracht *!/*/}
+
+            {/*<h1>Er zijn <span className="green">{soldTVs}</span> televisies verkocht.</h1>*/}
+            {/*<h1>Er zijn <span className="blue">{boughtTVs}</span> televisies ingekocht.</h1>*/}
+            {/*<h1>Er moeten nog <span className="red">{toBeSold}</span> televisies verkocht worden.</h1>*/}
+            {/*<article>*/}
+            {/*    <div className="tv-image-wrapper">*/}
+            {/*        <img src={productImage} alt="image of a tv"/>*/}
+            {/*    </div>*/}
+            {/*    <div className="tv-properties">*/}
+            {/*        <h1>{bestTVName}</h1>*/}
+            {/*        <h1>{TVPrice}</h1>*/}
+            {/*        <h1>{TVSizes}</h1>*/}
+            {/*        <h1>{checkIcon}wifi {minusIcon}speech {checkIcon}hdr {checkIcon}bluetooth {minusIcon}ambilight</h1>*/}
+            {/*    </div>*/}
+            {/*</article>*/}
+
+            {/*Deel 2 van de opdracht*/}
 
             <button onClick={() => {
                 console.log(inventory.sort((productA, productB) => productB.sold - productA.sold));
@@ -72,11 +78,13 @@ function App() {
                     return <article>
                         <div className="tv-image-wrapper">
                             <img src={tv.sourceImg} alt="image of a tv"/>
+                            {(tv.sold - tv.originalStock === 0) &&
+                                <div className="sold-out"><img src="../src/assets/out-of-stock.png"/></div>}
                         </div>
                         <div className="tv-properties">
-                            <h1>{bestSellingTVString(tv)}</h1>
+                            <h1>{televisionTitle(tv)}</h1>
                             <h1>{showTVEuroPrice(tv.price)}</h1>
-                            <h1>{bestSellingTVsizes(tv)}</h1>
+                            <h1>{tvSizes(tv)}</h1>
                             <h1>
                                 {tv.options.map((option) => {
                                     if (option.applicable) {
